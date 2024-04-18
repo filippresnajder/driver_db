@@ -32,6 +32,12 @@ body {
     border: 3px solid rgb(80, 80, 80);
     border-radius: 20px;
     margin-top: 20px;
+    text-decoration: none;
+}
+
+.box:hover {
+    color: rgba(128, 128, 128, 0.733);
+    cursor: pointer;
 }
 
 .mb-75px {

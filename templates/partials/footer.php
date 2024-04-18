@@ -3,8 +3,8 @@
               <div class="row">
               <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
                 <h5 class="mt-5">Contact us</h5>
-                <p><img src="img/email.png" width="30px"> email@example.com</p>
-                <p><img src="img/phone.png" width="30px"> +421 123 456 789</p>
+                <p><img src="../assets/img/email.png" width="30px"> email@example.com</p>
+                <p><img src="../assets/img/phone.png" width="30px"> +421 123 456 789</p>
               </div>
               <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
                 <h5 class="mt-5">Find us at</h5>

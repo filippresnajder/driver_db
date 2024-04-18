@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="sk">
     <head>
@@ -8,7 +11,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-        <link href="css/style.css" rel="stylesheet" type="text/css">
+        <link href="../assets/css/style.css" rel="stylesheet" type="text/css">
         <title>Driverbase</title>
     </head>
     <body>
@@ -20,12 +23,17 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" aria-current="page" href="index.php">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="database.php">Database</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../index.php">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../templates/database.php">Database</a></li>
                     </ul>
                     <ul class="navbar-nav justify-content-right">
-                        <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
-                        <li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>
+                        <?php if (isset($_SESSION['id'])) {
+                            echo '<li class="nav-item"><a class="nav-link" href="../config/logout.php">Logout</a></li>';
+                        } else {
+                            echo '<li class="nav-item"><a class="nav-link" href="../templates/login.php">Login</a></li>';
+                            echo '<li class="nav-item"><a class="nav-link" href="../templates/register.php">Register</a></li>';
+                        }
+                        ?>
                     </ul>
                 </div>
             </div>
