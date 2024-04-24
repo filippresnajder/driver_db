@@ -3,8 +3,8 @@
 ?>
 <div class="d-flex justify-content-center text-light">
     <?php 
-    if(!empty($_GET['error'])) {
-        echo '<h1 class="form-box">Error: '.$_GET['error'].'</h1>';
+    if(!empty($_GET['success'])) {
+        echo '<h1 class="form-box">'.$_GET['success'].'</h1>';
     }
     ?>
 </div>

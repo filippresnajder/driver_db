@@ -1,4 +1,5 @@
 <?php
-require_once("functions.php");
-Logout();
+require_once("config.php");
+$user = new User();
+$user->Logout();
 ?>

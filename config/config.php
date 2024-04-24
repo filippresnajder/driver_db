@@ -1,0 +1,9 @@
+<?php
+require_once("classes/database.php");
+require_once("classes/driver.php");
+require_once("classes/user.php");
+require_once("classes/page.php");
+require_once("classes/menu.php");
+require_once("classes/contact.php");
+session_start();
+?>
