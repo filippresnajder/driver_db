@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hostiteľ: 127.0.0.1
--- Čas generovania: St 24.Apr 2024, 19:45
+-- Čas generovania: Sun 28.Apr 2024, 23:34
 -- Verzia serveru: 10.4.32-MariaDB
 -- Verzia PHP: 8.0.30
 
@@ -314,12 +314,8 @@ CREATE TABLE `drivers` (
 --
 
 INSERT INTO `drivers` (`id`, `name`, `nationality`, `birthday`, `series`, `team`, `wiki_page`, `pic_address`, `added_by`) VALUES
-(84, 'Fernando Alonso', 'Spain', '1981-07-29', 'Formula 1', 'Aston Martin', 'https://en.wikipedia.org/wiki/Fernando_Alonso', '../assets/img/Fernando_Alonso_NASCAR_Media_Tour_2018.jpg', 1),
-(85, 'Sebastian Vettel', 'Germany', '1987-07-03', 'None', 'Retired', 'https://en.wikipedia.org/wiki/Sebastian_Vettel', '../assets/img/Sebastian_Vettel_-_2022236172324_2022-08-24_Champions_for_Charity_-_Sven_-_1D_X_MK_II_-_0418_-_B70I2428.jpg', 1),
-(86, 'Lewis Hamilton', 'United Kingdom', '1985-01-07', 'Formula 1', 'Mercedes', 'https://en.wikipedia.org/wiki/Lewis_Hamilton', '../assets/img/Lewis_Hamilton_2022_São_Paulo_Grand_Prix_(52498120773)_(cropped).jpg', 1),
-(87, 'Kimi Räikkonen', 'Finland', '1979-10-17', 'None', 'Retired', 'https://en.wikipedia.org/wiki/Kimi_R%C3%A4ikk%C3%B6nen', '../assets/img/220px-F12019_Schloss_Gabelhofen_(22)_(cropped).jpg', 1),
-(88, 'Théo Pourchaire', 'France', '2003-08-20', 'Indycar', 'Arrow McLaren', 'https://en.wikipedia.org/wiki/Th%C3%A9o_Pourchaire', '../assets/img/Pourchaire_Podium_Oschersleben_ADAC_F4_2019-2_(cropped).jpg', 1),
-(89, 'Roman Staněk', 'Czech Republic', '2004-02-25', 'Formula 2', 'Trident', 'https://en.wikipedia.org/wiki/Roman_Stan%C4%9Bk', '../assets/img/R.Staněk.jpg', 1);
+(2, 'test2', 'American Samoa', '1992-01-26', 'Formula 3', 'Trident', '', '../assets/img/stig.webp', 1),
+(3, 'Fernando Alonso', 'Spain', '1981-08-29', 'Formula 1', 'Aston Martin', 'https://en.wikipedia.org/wiki/Fernando_Alonso', '../assets/img/Fernando_Alonso_NASCAR_Media_Tour_2018.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -369,7 +365,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`) VALUES
 (1, 'admin', 'admin@driverbase.sk', '$2y$10$1TyHGDohNaYEnbEN10W.wOlrb5xWHY32Y7HDIJpDjNm1cLVzthCNq', 1),
-(19, 'testaccount', 'filippresnajder1@gmail.com', '$2y$10$WpTAVf6VLyZUHkz9AdOch.oZ7uElKYM8tzWxh9xxiJxX2F8fOypU6', 0);
+(20, 'testacc', 'filippresnajder1@gmail.com', '$2y$10$BXFi7ZsgtxCWIiB9k62e9urWGrfJfA3GJZ9LNt5itGEFvQB3azOP.', 0);
 
 --
 -- Kľúče pre exportované tabuľky
@@ -415,7 +411,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pre tabuľku `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT pre tabuľku `countries`
@@ -427,7 +423,7 @@ ALTER TABLE `countries`
 -- AUTO_INCREMENT pre tabuľku `drivers`
 --
 ALTER TABLE `drivers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pre tabuľku `series`
@@ -439,7 +435,7 @@ ALTER TABLE `series`
 -- AUTO_INCREMENT pre tabuľku `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

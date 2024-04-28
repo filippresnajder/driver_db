@@ -87,7 +87,7 @@ class Contact extends Database {
                   <td><input type="submit" class="admin-button" name="removemessage" value="Remove Message"/></td>
                   </tr>
                   <tr>
-                  <td colspan="4">'.$messages[$i]['message'].'</td>
+                  <td colspan="4" class="text-start">'.$messages[$i]['message'].'</td>
                   </tr>
                   </form>';
         }

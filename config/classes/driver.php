@@ -25,6 +25,14 @@ class Driver Extends Database {
         }         
     }
 
+    public function getDriverData($id) {
+        $qry = $this->db->prepare("SELECT * FROM drivers WHERE id = :id");
+        $qry->bindParam(':id', $id);
+        $qry->execute();
+        $data = $qry->fetchAll();
+        return $data[0];
+    }
+
     public function addDriver() {
         $name = strip_tags($_POST['fullname']);
         $nationality = strip_tags($_POST['nationality']);
@@ -177,7 +185,7 @@ class Driver Extends Database {
         $drivers = $this->getAllDrivers();
         echo '<thead>
                 <tr class="text-center">
-                <th colspan="4">Users</th>
+                <th colspan="5">Users</th>
                 </tr>
               </thead>
               <thead>
@@ -185,7 +193,7 @@ class Driver Extends Database {
                 <th scope="col">ID</th>
                 <th scope="col">Name</th>
                 <th scope="col">Added by</th>
-                <th scope="col">Action</th>
+                <th colspan="2">Action</th>
                 </tr>
               </thead>
              <tbody>';
@@ -194,15 +202,21 @@ class Driver Extends Database {
             if ($u != "Removed account") {
               $u = $u[0]['username'];  
             }
-            echo '<form action="" method="post">
-                  <tr>
+            echo '<tr>
                   <td scope="row">'.$drivers[$i]['id'].'</td>
-                  <input type="hidden" name=driverid value='.$drivers[$i]['id'].'>
                   <td>'.$drivers[$i]['name'].'</td>
                   <td>'.$u.'</td>
-                  <td><input type="submit" class="admin-button" name="removedriver" value="Remove Driver"/></td>
-                  </tr>
+                  <form action="" method="post">
+                  <td><button type="submit" class="admin-button" name="removedriver" value="'.$drivers[$i]['id'].'"/>Remove Driver</td>
                   </form>';
+            if  ($drivers[$i]['wiki_page'] == null) {
+                echo '<form action="../templates/driver_edit.php" method="post">
+                      <td><button type="submit" class="admin-button" name="edit" value="'.$drivers[$i]['id'].'"/>Add Wikipedia page</td>
+                      </form>';
+            } else {
+                echo '<td></td>';
+            }
+                echo '</tr>';
         }
     }
 
@@ -211,6 +225,22 @@ class Driver Extends Database {
         $qry->bindParam(':did', $id);
         $qry->execute();
         $suc = "Driver removed.";
+        header("Location: ../templates/success.php?success=".$suc."");
+        exit;
+    }
+
+    public function updateWiki($id) {
+        $wiki = strip_tags($_POST['wiki-update']);
+        if ($wiki == null) {
+            $err = "No wiki provided.";
+            header("Location: ../templates/error.php?error=".$err."");
+            exit;
+        }
+        $qry = $this->db->prepare("UPDATE drivers SET wiki_page = :wiki WHERE id = :did");
+        $qry->bindParam(':wiki', $wiki);
+        $qry->bindParam(':did', $id);
+        $qry->execute();
+        $suc = "Wikipedia updated.";
         header("Location: ../templates/success.php?success=".$suc."");
         exit;
     }

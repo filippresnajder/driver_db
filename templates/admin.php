@@ -17,7 +17,7 @@
     }
 ?>
 <div class="d-flex justify-content-center">
-<table class="table table-responsive table-sm table-bordered w-50 table-striped table-dark">
+<table class="table table-responsive table-sm table-bordered w-50 table-striped table-dark text-center">
   <?php
     $user->generateUserTable();
     if(isset($_POST['remove'])) {
@@ -29,11 +29,11 @@
 </table>
 </div>
 <div class="d-flex justify-content-center">
-<table class="table table-responsive table-sm table-bordered w-50 table-striped table-dark">
+<table class="table table-responsive table-sm table-bordered w-50 table-striped table-dark text-center">
   <?php
     $driver->generateDriversTable();
     if(isset($_POST['removedriver'])) {
-      $driverid = $_POST['driverid'];
+      $driverid = $_POST['removedriver'];
       $driver->removeDriver($driverid);
     }
   ?>
@@ -41,7 +41,7 @@
 </table>
 </div>
 <div class="d-flex justify-content-center">
-<table class="table table-responsive table-sm table-bordered w-50 table-striped table-dark">
+<table class="table table-responsive table-sm table-bordered w-50 table-striped table-dark text-center">
   <?php
     $contact->generateContactTable();
     if(isset($_POST['removemessage'])) {
